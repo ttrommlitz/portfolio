@@ -8,7 +8,19 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [],
+  // plugins are external datasources
+  plugins: [
+    'gatsby-transformer-remark', // transform md files for use in the graphql layer
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        // The unique name for each instance
+        name: `projects`,
+        // Path to the directory
+        path: `${__dirname}/src/projects/`,
+      },
+    }
+  ],
   siteMetadata: {
     title: 'Web Warrior',
     description: 'Web Dev Portfolio',
