@@ -11,6 +11,8 @@ module.exports = {
   // plugins are external datasources
   plugins: [
     'gatsby-transformer-remark', // transform md files for use in the graphql layer
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -19,11 +21,21 @@ module.exports = {
         // Path to the directory
         path: `${__dirname}/src/projects/`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        // The unique name for each instance
+        name: `images`,
+        // Path to the directory
+        path: `${__dirname}/src/images/`,
+      },
     }
   ],
   siteMetadata: {
     title: 'Web Warrior',
     description: 'Web Dev Portfolio',
-    copyright: 'This website is copyright 2021 web warrior'
+    copyright: 'This website is copyright 2021 web warrior',
+    contact: 'ttrommlitz6@gmail.com'
   }
 }
